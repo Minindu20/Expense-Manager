@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\user\\AndroidStudioProjects\\Expense-Manager\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v21\\values-v21.xml",
+            "outputFile": "C:\\Users\\user\\AndroidStudioProjects\\Expense-Managerfinal\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v21\\values-v21.xml",
             "map": [
                 {
                     "source": "C:\\Users\\user\\.gradle\\caches\\transforms-2\\files-2.1\\d1d1709d55c8ab5fa359ce49bd908eb5\\design-26.1.0\\res\\values-v21\\values-v21.xml",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\user\\AndroidStudioProjects\\Expense-Manager\\app\\src\\main\\res\\values-v21\\styles.xml",
+                    "source": "C:\\Users\\user\\AndroidStudioProjects\\Expense-Managerfinal\\app\\src\\main\\res\\values-v21\\styles.xml",
                     "from": {
                         "startLines": "18",
                         "startColumns": "4",

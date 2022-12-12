@@ -29,15 +29,9 @@ public class PersistentAccountDAO implements AccountDAO {
     public Account getAccount(String accountNum) throws InvalidAccountException {
 
         SQLdatabase = databaseManager.getReadableDatabase();
-        String selection = ACCOUNT_NUMBER + " = ?";
         Cursor cursor = SQLdatabase.query(
                 ACCOUNT_TABLE,   // process the query
-                new String[]{ACCOUNT_NUMBER, BANK_NAME, HOLDERS_NAME, INITIAL_BALANCE},
-                selection,
-                new String[]{accountNum},
-                null,
-                null,
-                null
+                new String[]{ACCOUNT_NUMBER, BANK_NAME, HOLDERS_NAME, INITIAL_BALANCE}, ACCOUNT_NUMBER + " = ?", new String[]{accountNum}, null, null, null
         );
 
         if (cursor != null){
@@ -59,12 +53,7 @@ public class PersistentAccountDAO implements AccountDAO {
         List<String> accountNumbersList = new ArrayList<String>();
         Cursor cursor = SQLdatabase.query(
                 ACCOUNT_TABLE,   // Query to get Account number
-                new String[]{ACCOUNT_NUMBER},
-                null,
-                null,
-                null,
-                null,
-                null
+                new String[]{ACCOUNT_NUMBER}, null, null, null, null, null
         );
 
         while(cursor.moveToNext()) {
@@ -81,12 +70,7 @@ public class PersistentAccountDAO implements AccountDAO {
         List<Account> accountsList = new ArrayList<Account>();
         Cursor cursor = SQLdatabase.query(
                 ACCOUNT_TABLE,   // generate quary to get the columns
-                new String[]{ACCOUNT_NUMBER, BANK_NAME, HOLDERS_NAME, INITIAL_BALANCE},
-                null,
-                null,
-                null,
-                null,
-                null
+                new String[]{ACCOUNT_NUMBER, BANK_NAME, HOLDERS_NAME, INITIAL_BALANCE}, null, null, null, null, null
         );
 
         while(cursor.moveToNext()) {
@@ -125,15 +109,8 @@ public class PersistentAccountDAO implements AccountDAO {
     public void updateBalance(String accountNo, ExpenseType expenseType, double amount) throws InvalidAccountException {
 
          SQLdatabase = databaseManager.getWritableDatabase();
-         String selection = ACCOUNT_NUMBER + " = ?";
          Cursor cursor = SQLdatabase.query(  //process the query
-                 ACCOUNT_TABLE,
-                 new String[]{INITIAL_BALANCE},
-                 selection,
-                 new String[]{accountNo},
-                 null,
-                 null,
-                 null
+                 ACCOUNT_TABLE, new String[]{INITIAL_BALANCE}, ACCOUNT_NUMBER + " = ?", new String[]{accountNo}, null, null, null
          );
         double balance;
          if(cursor.moveToFirst()){

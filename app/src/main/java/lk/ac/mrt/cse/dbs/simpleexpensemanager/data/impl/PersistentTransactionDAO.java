@@ -49,12 +49,7 @@ public class PersistentTransactionDAO implements TransactionDAO {
         SQLdatabase = databaseManager.getReadableDatabase();
         Cursor cursor = SQLdatabase.query( //generate quary
                 TRANSACTION_TABLE,
-                new String[]{ DATE, ACCOUNT_NUMBER, EXPENSE_TYPE, AMOUNT},
-                null,
-                null,
-                null,
-                null,
-                null
+                new String[]{ DATE, ACCOUNT_NUMBER, EXPENSE_TYPE, AMOUNT}, null, null, null, null, null
         );
         while(cursor.moveToNext()){
             String dateString = cursor.getString(cursor.getColumnIndex(DATE));
@@ -75,12 +70,7 @@ public class PersistentTransactionDAO implements TransactionDAO {
         SQLdatabase = databaseManager.getReadableDatabase();
         Cursor cursor = SQLdatabase.query( //generate quary
                 TRANSACTION_TABLE,
-                new String[]{DATE, ACCOUNT_NUMBER, EXPENSE_TYPE, AMOUNT},
-                null,
-                null,
-                null,
-                null,
-                null
+                new String[]{DATE, ACCOUNT_NUMBER, EXPENSE_TYPE, AMOUNT}, null, null, null, null, null
         );
         int size = cursor.getCount();
         while(cursor.moveToNext()){
