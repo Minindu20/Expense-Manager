@@ -29,21 +29,12 @@ public class PersistentAccountDAO implements AccountDAO {
     public Account getAccount(String accountNum) throws InvalidAccountException {
 
         SQLdatabase = databaseManager.getReadableDatabase();
-        String[] columns = {
-                ACCOUNT_NUMBER,
-                BANK_NAME,
-                HOLDERS_NAME,
-                INITIAL_BALANCE
-        };
-
         String selection = ACCOUNT_NUMBER + " = ?";
-        String[] Arguments = { accountNum };
-
         Cursor cursor = SQLdatabase.query(
                 ACCOUNT_TABLE,   // process the query
-                columns,
+                new String[]{ACCOUNT_NUMBER, BANK_NAME, HOLDERS_NAME, INITIAL_BALANCE},
                 selection,
-                Arguments,
+                new String[]{accountNum},
                 null,
                 null,
                 null
@@ -66,12 +57,9 @@ public class PersistentAccountDAO implements AccountDAO {
     public List<String> getAccountNumbersList(){
         SQLdatabase = databaseManager.getReadableDatabase();
         List<String> accountNumbersList = new ArrayList<String>();
-        String[] column = {
-                ACCOUNT_NUMBER
-        };
         Cursor cursor = SQLdatabase.query(
                 ACCOUNT_TABLE,   // Query to get Account number
-                column,
+                new String[]{ACCOUNT_NUMBER},
                 null,
                 null,
                 null,
@@ -91,16 +79,9 @@ public class PersistentAccountDAO implements AccountDAO {
 
         SQLdatabase = databaseManager.getReadableDatabase();
         List<Account> accountsList = new ArrayList<Account>();
-        String[] columns = {
-                ACCOUNT_NUMBER,
-                BANK_NAME,
-                HOLDERS_NAME,
-                INITIAL_BALANCE
-        };
-
         Cursor cursor = SQLdatabase.query(
                 ACCOUNT_TABLE,   // generate quary to get the columns
-                columns,
+                new String[]{ACCOUNT_NUMBER, BANK_NAME, HOLDERS_NAME, INITIAL_BALANCE},
                 null,
                 null,
                 null,
@@ -144,17 +125,12 @@ public class PersistentAccountDAO implements AccountDAO {
     public void updateBalance(String accountNo, ExpenseType expenseType, double amount) throws InvalidAccountException {
 
          SQLdatabase = databaseManager.getWritableDatabase();
-         String[] column = {
-                 INITIAL_BALANCE
-         };
          String selection = ACCOUNT_NUMBER + " = ?";
-         String[] Arguments = {accountNo};
-
          Cursor cursor = SQLdatabase.query(  //process the query
                  ACCOUNT_TABLE,
-                 column,
+                 new String[]{INITIAL_BALANCE},
                  selection,
-                 Arguments,
+                 new String[]{accountNo},
                  null,
                  null,
                  null

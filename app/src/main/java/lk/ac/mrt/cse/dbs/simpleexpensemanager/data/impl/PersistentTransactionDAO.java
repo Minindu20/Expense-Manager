@@ -47,15 +47,9 @@ public class PersistentTransactionDAO implements TransactionDAO {
     public List<Transaction> getAllTransactionLogs() throws ParseException {
         List<Transaction> transactionsList = new ArrayList<>();
         SQLdatabase = databaseManager.getReadableDatabase();
-        String[] columns = {
-                DATE,
-                ACCOUNT_NUMBER,
-                EXPENSE_TYPE,
-                AMOUNT
-        };
         Cursor cursor = SQLdatabase.query( //generate quary
                 TRANSACTION_TABLE,
-                columns,
+                new String[]{ DATE, ACCOUNT_NUMBER, EXPENSE_TYPE, AMOUNT},
                 null,
                 null,
                 null,
@@ -79,15 +73,9 @@ public class PersistentTransactionDAO implements TransactionDAO {
     public List<Transaction> getPaginatedTransactionLogs(int limit) throws ParseException {
         List<Transaction> transactionsList = new ArrayList<>();
         SQLdatabase = databaseManager.getReadableDatabase();
-        String[] columns = {
-                DATE,
-                ACCOUNT_NUMBER,
-                EXPENSE_TYPE,
-                AMOUNT
-        };
         Cursor cursor = SQLdatabase.query( //generate quary
                 TRANSACTION_TABLE,
-                columns,
+                new String[]{DATE, ACCOUNT_NUMBER, EXPENSE_TYPE, AMOUNT},
                 null,
                 null,
                 null,
